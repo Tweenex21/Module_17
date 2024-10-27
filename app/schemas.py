@@ -1,17 +1,14 @@
 from pydantic import BaseModel
 
 
-class CreateUser(BaseModel):
-    username: str
-    firstname: str
-    lastname: str
-    age: int
-
-
 class UpdateUser(BaseModel):
     firstname: str
     lastname: str
     age: int
+
+
+class CreateUser(UpdateUser):
+    username: str
 
 
 class CreateTask(BaseModel):
@@ -20,7 +17,5 @@ class CreateTask(BaseModel):
     priority: int
 
 
-class UpdateTask(BaseModel):
-    title: str
-    content: str
-    priority: int
+class UpdateTask(CreateTask):
+    pass
